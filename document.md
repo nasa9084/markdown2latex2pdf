@@ -14,6 +14,8 @@ md2pdfを使用するには以下のソフトウェアが必要です.
 * pandoc
 * texlive (platexおよびdvipdfmxが使用できること)
 
+また、goemon.ymlとgoemon(https://github.com/mattn/goemon)を使用することで、変更時に自動コンパイルを行うことができます。
+
 ## 使用方法
 
 md2pdfを使用するには, bashまたはzshで以下のようにスクリプトを実行します.
@@ -27,6 +29,19 @@ $ ./md2pdf.sh -t TEMPLATE FILENAME
 数秒待った後, PDFファイルが生成されます[^genPDF].
 
 中間ファイルとして\TeX ファイルを残します.
+
+goemonを使用する場合、goemon.ymlおよびmd2pdf.sh、対象のmarkdownファイルがおいてあるディレクトリ内で以下を実行します。
+
+```
+$ goemon --
+```
+
+自作のテンプレートを使用する場合、`goemon-with-template.yml`を使用することができます。その際、テンプレート名は`template.tex`となっていますので、テンプレートのファイル名を`template.tex`とするか、`goemon-with-template.yml`を書き換えて使用してください。
+`goemon-with-template.yml`を使用した自動変換は以下のコマンドで実行できます。
+
+```
+$ goemon -c goemon-with-template.yml
+```
 
 [^genPDF]: テンプレートなどに問題が無ければ.
 
