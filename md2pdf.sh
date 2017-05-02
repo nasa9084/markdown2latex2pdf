@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# Markdown2LaTeX2PDF
+# author: nasa9084
+#
+# This script converts markdown file to PDF with LaTeX for intermidiate format.
+# This is written for internal use in VirtualTech Inc.
+#
+
 
 # function definitions
 function vecho() {
