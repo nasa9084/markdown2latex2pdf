@@ -1,6 +1,5 @@
 import re
 import sys
-import subprocess
 import yaml
 
 def main():
