@@ -8,6 +8,8 @@ this script require blow.
 
 * LaTeX (platex and dvipdfms is required.)
 * Pandoc
+* python
+* PyYAML
 
 recommended installing TeXLive
 
