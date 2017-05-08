@@ -11,7 +11,7 @@ def main():
     text = sys.argv[2]
     if re.search("\.y(a)?ml$", filter_name):
         f = yaml_filter(filter_name)
-    if re.search("\.json$", filter_name):
+    elif re.search("\.json$", filter_name):
         f = json_filter(filter_name)
     text = filter(f, text)
     print(text)
