@@ -1,0 +1,7 @@
+---
+- type: sed
+  before: "^#"
+  after: ""
+- type: sed
+  before: "<!-- ?BREAK ?-->"
+  after: "\\\\newpage"

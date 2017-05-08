@@ -17,21 +17,12 @@ function vecho() {
 
 function markdown_filter() {
     vecho " filtering markdown..."
-    stream="$1"
-    stream=$(echo "$stream" | sed -E "s/^#//")
-    stream=$(echo "$stream" | sed -E "s/<\!-- BREAK -->/\\\\newpage/g")
-    markdown="$stream"
+    markdown=$(python filter.py mdfilter.yml "$1")
 }
 
 function tex_filter() {
     vecho " filtering TeX..."
-    stream="$1"
-    stream=$(echo "$stream" | sed -E "s/\\\\includegraphics/\\\\includegraphics[width=\\\\columnwidth]/g")
-    stream=$(echo "$stream" | sed -E "s/verbatim/lstlisting/g")
-    stream=$(echo "$stream" | sed -E "s/({変更履歴)/*\1/")
-    stream=$(echo "$stream" | sed -E "s/({はじめに)/*\1/")
-    stream=$(echo "$stream" | sed -E "s/({参考文献)/*\1/")
-    tex="$stream"
+    tex=$(python filter.py texfilter.yml "$1")
 }
 
 function md2tex() {

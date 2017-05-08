@@ -1,0 +1,16 @@
+---
+- type: sed
+  before: "\\\\includegraphics"
+  after: "\\\\includegraphics[width=\\\\columnwidth]"
+- type: sed
+  before: "verbatim"
+  after: "lstlisting"
+- type: sed
+  before: "({変更履歴)"
+  after: "*\\1"
+- type: sed
+  before: "({はじめに)"
+  after: "*\\1"
+- type: sed
+  before: "({参考文献)"
+  after: "*\\1"
