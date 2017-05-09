@@ -39,12 +39,17 @@ function tex2pdf() {
         platex --interaction=nonstopmode ${filename}.tex > /dev/null
         dvipdfmx ${filename}.dvi &> /dev/null
     fi
+    mv ${filename}.pdf ${output}/${filename}.pdf
 }
 
 # flag parse
 verbose=0
-while getopts :t:vh OPT; do
+output="./"
+while getopts :o:t:vh OPT; do
     case $OPT in
+        o)
+            output="$OPTARG"
+            ;;
         t)
             template="$OPTARG"
             ;;
@@ -70,7 +75,7 @@ filename="$1"
 if [ "$1" = '' ]; then
     echo "FILENAME is required."
     cat <<EOF
-Usage: ${0##*/} [-t TEMPLATE] [--] FILENAME
+Usage: ${0##*/} [-o OUTPUT_DIR] [-t TEMPLATE] [--] FILENAME
        -t TEMPLATE template .tex file name
        -h show help and exit
 EOF
