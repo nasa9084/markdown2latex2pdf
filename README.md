@@ -2,7 +2,29 @@
 
 markdown to PDF converter
 
-## requirements
+## with docker
+
+you can use with docker.
+
+build:
+
+```
+$ cd docker
+$ docker build -t md2pdf .
+```
+
+and run:
+
+```
+$ docker run -v $PWD:/workdir --rm md2pdf
+```
+
+the container compile $PWD/document.md to $PWD/document.pdf.
+if there is template.tex in $PWD, the container use it.
+
+## without docker
+
+### requirements
 
 this script require blow.
 
@@ -13,13 +35,13 @@ this script require blow.
 
 recommended installing TeXLive
 
-## get started
+### how to run
 
 ```
 $ ./md2pdf.sh document.md
 ```
 
-### use with goemon
+#### use with goemon
 
 if you want to use with [goemon](https://github.com/mattn/goemon), you can use goemon.yml or goemon-with-template.yml.
 
