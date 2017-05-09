@@ -39,17 +39,12 @@ function tex2pdf() {
         platex --interaction=nonstopmode ${filename}.tex > /dev/null
         dvipdfmx ${filename}.dvi &> /dev/null
     fi
-    mv ${filename}.pdf ${output}/${filename}.pdf
 }
 
 # flag parse
 verbose=0
-output="./"
 while getopts :o:t:vh OPT; do
     case $OPT in
-        o)
-            output="$OPTARG"
-            ;;
         t)
             template="$OPTARG"
             ;;
