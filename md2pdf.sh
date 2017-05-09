@@ -43,7 +43,7 @@ function tex2pdf() {
 
 # flag parse
 verbose=0
-while getopts :o:t:vh OPT; do
+while getopts :t:vh OPT; do
     case $OPT in
         t)
             template="$OPTARG"
